@@ -17,6 +17,49 @@ declare module Chance {
         natural(opts?: Options): number;
         string(opts?: Options): string;
 
+        // Text
+        paragraph(opts?: Options): string;
+        sentence(opts?: Options): string;
+        syllable(opts?: Options): string;
+        word(opts?: Options): string;
+
+        // Person
+        age(opts?: Options): number;
+        birthday(): Date;
+        birthday(opts?: Options): Date|string;
+        cpf(): string;
+        first(opts?: Options): string;
+        last(opts?: Options): string;
+        name(opts?: Options): string;
+        name_prefix(opts?: Options): string;
+        name_suffix(opts?: Options): string;
+        prefix(opts?: Options): string;
+        ssn(opts?: Options): string;
+        suffix(opts?: Options): string;
+
+        // Mobile
+        android_id(): string;
+        apple_token(): string;
+        bb_pin(): string;
+        wp7_anid(): string;
+        wp8_anid2(): string;
+
+        // Web
+        color(opts?: Options): string;
+        domain(opts?: Options): string;
+        email(opts?: Options): string;
+        fbid(): string;
+        google_analytics(): string;
+        hashtag(): string;
+        ip(): string;
+        ipv6(): string;
+        klout(): string;
+        tld(): string;
+        twitter(): string;
+        url(opts?: Options): string;
+
+        // Location
+
         // Time
         ampm(): string;
         date(): Date;
