@@ -59,6 +59,22 @@ declare module Chance {
         url(opts?: Options): string;
 
         // Location
+        address(opts?: Options): string;
+        altitude(opts?: Options): number;
+        areacode(): string;
+        city(): string;
+        coordinates(opts?: Options): string;
+        country(opts?: Options): string;
+        depth(opts?: Options): number;
+        geohash(opts?: Options): string;
+        latitude(opts?: Options): number;
+        longitude(opts?: Options): number;
+        phone(opts?: Options): string;
+        postal(): string;
+        province(opts?: Options): string;
+        state(opts?: Options): string;
+        street(opts?: Options): string;
+        zip(opts?: Options): string;
 
         // Time
         ampm(): string;
@@ -74,6 +90,18 @@ declare module Chance {
         timestamp(): number;
         year(opts?: Options): string;
 
+        // Finance
+        cc(opts?: Options): string;
+        cc_type(): string;
+        cc_type(opts: Options): string|CreditCardType;
+        currency(): Currency;
+        currency_pair(): [ Currency, Currency ];
+        dollar(opts?: Options): string;
+        exp(): string;
+        exp(opts: Options): string|CreditCardExpiration;
+        exp_month(opts?: Options): string;
+        exp_year(opts?: Options): string;
+
         // Helpers
         capitalize(str: string): string;
         mixin(desc: MixinDescriptor): any;
@@ -84,7 +112,34 @@ declare module Chance {
         shuffle<T>(arr: T[]): T[];
 
         // Miscellaneous
-        n<T>(generator: () => T, count: number, opts?: Options);
+        d4(): number;
+        d6(): number;
+        d8(): number;
+        d10(): number;
+        d12(): number;
+        d20(): number;
+        d30(): number;
+        d100(): number;
+        guid(): string;
+        hash(opts?: Options): string;
+        n<T>(generator: () => T, count: number, opts?: Options): T[];
+        normal(opts?: Options): string;
+        radio(opts?: Options): string;
+        rpg(dice: string): number[];
+        rpg(dice: string, opts?: Options): number[]|number;
+        tv(opts?: Options): string;
+        unique<T>(generator: () => T, count: number, opts?: Options): T[];
+        weighted<T>(values: T[], weights: number[]): T;
+
+        // "Hidden"
+        cc_types(): CreditCardType[];
+        mersenne_twister(seed?: number): any; // API return type not defined in docs
+        months(): Month[];
+        name_prefixes(): Name[];
+        provinces(): Name[];
+        states(): Name[];
+        street_suffix(): Name;
+        street_suffixes(): Name[];
     }
 
     // A more rigorous approach might be to produce
@@ -105,6 +160,23 @@ declare module Chance {
         numeric: string;
     }
 
+    interface CreditCardType {
+        name: string;
+        short_name: string;
+        prefix: string;
+        length: number;
+    }
+
+    interface Currency {
+        code: string;
+        name: string;
+    }
+
+    interface CreditCardExpiration {
+        month: string;
+        year: string;
+    }
+
     interface MixinDescriptor { [id: string]: () => any; }
 
     interface Setter {
@@ -119,6 +191,11 @@ declare module Chance {
         (key: 'cc_types', values: string[]): any;
         (key: 'currency_types', values: string[]): any;
         <T>(key: string, values: T[]): any;
+    }
+
+    interface Name {
+        name: string;
+        abbreviation: string;
     }
 }
 
