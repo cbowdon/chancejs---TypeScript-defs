@@ -1,3 +1,7 @@
+// Type definitions for Chance 0.7.3
+// Project: http://chancejs.com
+// Definitions by: Chris Bowdon <https://github.com/cbowdon/>
+// Definitions: https://github.com/borisyankov/DefinitelyTyped
 declare module Chance {
 
     interface ChanceStatic {
@@ -201,9 +205,9 @@ declare module Chance {
 
 // window.chance
 declare var chance: Chance.Chance;
+declare var Chance: Chance.ChanceStatic;
 
 // import Chance = require('chance');
-declare var importChance: Chance.ChanceStatic;
 declare module 'chance' {
-    export = importChance;
+    export = Chance;
 }
